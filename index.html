@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Parametro personalizado</title>
+  <style>
+    body { font-family: sans-serif; padding: 2em; background: #f0f0f0; }
+    .box { background: white; padding: 1em; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Valor recibido:</h2>
+    <p id="texto">Cargando...</p>
+    <p>consejo añade "?texto=hola" en el link</p>
+  </div>
+
+  <script>
+    // Función para obtener parámetros de la URL
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Obtener el valor de "texto" y mostrarlo
+    const texto = getQueryParam("texto") || "Poner Algo";
+    document.getElementById("texto").textContent = "texto = " + texto;
+  </script>
+</body>
+</html>
